@@ -1,4 +1,5 @@
 from PIL import Image
+#pip3 install pillow貌似是这个库，我也忘了
 ascii_char = list("MNHQ$OC?7>!:-;.")
 WIDTH=200
 HEIGHT=200
