@@ -10,6 +10,7 @@ import random
 import math
 import operator
 
+#基于python2.7
 #数据处理的函数
 #把加载进来的特征数据从字符串转换成整数,随机地切分
 #训练数据集和测试数据集。训练数据集数据量/测试数据
