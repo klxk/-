@@ -10,12 +10,13 @@ import random
 import math
 import operator
 
+#based on python3
 #数据处理的函数
 #把加载进来的特征数据从字符串转换成整数,随机地切分
 #训练数据集和测试数据集。训练数据集数据量/测试数据
 #集数据量的比值取67/33是一个常用的惯例
 def loadDataset(filename,split,trainingSet=[],testSet=[]):
-    with open(filename,'rb') as csvfile:
+    with open(filename,'r') as csvfile:
         lines = csv.reader(csvfile)
         dataset=list(lines)
         for x in range(len(dataset)-1):#遍历所有行
@@ -80,7 +81,7 @@ def getResponse(neighbors):
             classVotes[response] += 1
         else:
             classVotes[response] = 1
-    sortedVotes = sorted(classVotes.iteritems(),key=operator.itemgetter(1),
+    sortedVotes = sorted(classVotes.items(),key=operator.itemgetter(1),
                          reverse=True)#根据第二维排序即标签所对应的数量，大的在前
     return sortedVotes[0][0] #返回所对应的标签
 
@@ -108,8 +109,8 @@ def main():
     testSet=[]
     split = 0.67
     loadDataset('iris.data',split,trainingSet,testSet)
-    print 'Train:' + repr(len(trainingSet))
-    print 'Test:' + repr(len(testSet))
+    print('Train:' + repr(len(trainingSet)))
+    print( 'Test:' + repr(len(testSet)))
     predictions=[]
     k=3
     for x in range(len(testSet)):
